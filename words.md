@@ -34,7 +34,6 @@ closure | закрытие, завершение
 compare | сравнение
 conclusion | вывод
 conditions | условия
-conditions | условия
 contains | содержит, включает
 conversion | преобразование
 crop | урожай, кадрирование, обрезка
