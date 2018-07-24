@@ -75,7 +75,7 @@ failure | попытка
 feedback | обратная связь
 feeling | чувство
 fees | сборы, поборы
-fenjoygeneric | Универсальный
+fenjoygeneric | универсальный
 fetch | выбрать, извлечь
 fetch | получить
 flash | вспышка, сброс
