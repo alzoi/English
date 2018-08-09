@@ -52,7 +52,7 @@ composition | состав
 flow | поток, расход
 pressure | давление
 feed | подача
-exchanger | обменник
+exchanger | обменник, биржа
 heat | тепло
 heat exchanger | теплообменник
 agile | гибкий, быстрый, проворный
