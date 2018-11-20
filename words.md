@@ -99,7 +99,7 @@ assuming | предположение
 fetch | получить
 signatory | подписант, подписывающая сторона
 maintenance | поддержка, обслуживание
-reference | ссылка
+reference | ссылка, справка
 statement | выражение
 retrieved | получать, извлекать
 recent | последний
