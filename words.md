@@ -155,6 +155,7 @@ our | наш, наша
 assigment | назначение
 assigned | заданный, назначенный
 launchpad | стартовая площадка
+launcher | запускатель, оболочка для запуска
 composition | состав
 flow | поток, расход
 pressure | давление
