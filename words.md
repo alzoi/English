@@ -222,6 +222,7 @@ density | плотность, ёмкость
 depends | зависит
 determination | выбор, определение
 die | погибать
+different | другой
 difference | разница
 dimensions | размеры
 dirty | грязный
