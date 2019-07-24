@@ -6,6 +6,7 @@ auxiliary | вспомогательный
 deprecated | осуждается, не одобрять
 has just been | только что
 bundler | упаковщик
+bundle | пакет
 interim | промежуточный, экспериментальный
 tenant | клиент, арендатор
 still | ещё
