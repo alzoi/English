@@ -1,5 +1,4 @@
 # Full Stack Pronounced Dead: Welcome 2020 Stack  
-11-14 minutes  
 
 The author decides it’s time to update his job posting and hiring practice to reflect a new reality: “Full stack” is no longer helping him to match job requirements with applicant skills.
 
