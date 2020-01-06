@@ -1,5 +1,5 @@
-Full Stack Pronounced Dead: Welcome 2020 Stack
-11-14 minutes
+Full Stack Pronounced Dead: Welcome 2020 Stack  
+11-14 minutes  
 The author decides it’s time to update his job posting and hiring practice to reflect a new reality: “Full stack” is no longer helping him to match job requirements with applicant skills.
 
 At the dawn of the new millennium, web tools had reached the point where everything needed to build a website could be assembled from open source software. Loosely following the OSI network model, we began to refer to the individual pieces of the assembly as layers and the collection as a stack.
