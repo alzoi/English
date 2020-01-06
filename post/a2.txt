@@ -1,0 +1,1139 @@
+welcome back to web dev simplified my
+name is Kyle and you can imagine when
+you're using the web almost every single
+website that you use has some form of
+log and component to it where you have a
+user account you can log in log out etc
+and I bet you the project that you're
+thinking about working on also has that
+exact same login component so in today's
+video I'm going to show you the
+boilerplate template for how to set up
+your very own login system inside of
+your application
+let's get started now Before we jump
+into coding let me show you the
+absolutely beautiful looking website
+that we're gonna build in this video
+well maybe not so beautiful what we have
+here is a login screen we can click
+register and go to our register screen
+and let's say that we register a user
+here just a very basic user click
+register it'll bring us to our login
+page and then if we want to login let's
+say we choose an email that doesn't
+exist and we're going to choose password
+and we click login it'll tell us that
+the user with the email doesn't exist
+and if we actually login with correct
+email but the wrong password it'll tell
+us our passwords incorrect and finally
+if we type in both the same email and
+the same password and click login it's
+going to bring us to the page display
+our name and give us a logout button
+also if your redirect to that login page
+it's actually going to read your ex back
+to this homepage because we're already
+logged in as soon as we click logout
+though it's gonna bring us back to login
+and if we try to go to that home page it
+won't let us sisters going to redirect
+us back to the login page so now that we
+know what we're building let's fire up
+Visual Studio code and we're just going
+to have a completely blank project to
+get started with because that's the best
+way to do things and the first thing we
+need to do is initialize our project
+since we're going to be using NPM to
+store all of our dependencies we can
+just type in NPM an it and we can just
+use the default values so we can hit
+enter a bunch of times and here we go
+it's going to give us a package.json
+which is where we're going to store all
+of our dependencies and to get started
+I'm only going to install the
+dependencies we're going to need to get
+the basic application running and then
+we'll install the pendency zazz we run
+into the need for them later so we can
+type in npm i and this is going to let
+us start installing dependencies and the
+first dependency we need is called
+Express this will be our application
+server and the next dependency we need
+is ejs and this will be our templating
+language for all by different views such
+as log in register etc we're also going
+to need a few development dependencies
+so we can type in npm i - - save dev
+just a table user for development only
+and we want
+no daman as well as dot env and node
+menthe is going to allow us to restart
+our server automatically every time we
+make changes and dot env will just allow
+us to have environment variables that we
+can store it inside of a dot env file
+that we can load into our server so
+let's create that EMV file now just call
+it a env and this is where our
+environment variables will go and we
+also want to create here a dot get
+ignore because we actually want to
+ignore these files we don't want to
+commit our env and we also don't want to
+commit our node modules to our git
+repository and this is because node
+modules is just all of our installed
+dependencies and env could contain
+secret sensitive information we don't
+want to share it the world the very last
+thing that we need to do is actually set
+up our package.json so that we can start
+our server inside of this script section
+let's just create a script called dev
+start and inside of here what we're
+going to do is we're just going to run
+node Mon and we're gonna run server GS
+which is the server file we're going to
+be creating now we can save that create
+that server file
+sorry ojs and now inside of a console if
+we've run node Mon whoops not node Mon
+if we run NPM run dead start just like
+that that's going to run that script
+that we just created in here this dead
+start script and every single time we
+make a change to our server jeaious it's
+going to refresh our server and rerun
+all of our code to get started the very
+first thing we want to do is just set up
+our basic Express application so let's
+import Express we can do that just using
+an expressive variable we can just say
+require Express that's going to bring in
+Express and we also want to get the app
+variable from Express so we can just say
+call the Express function here and if we
+come down here and type in app dot
+listen and give it a port we now have an
+application running on port 3000 when we
+save that we go to localhost 3000 you
+can see we get cannot get slash and
+that's because we have no route set up
+for our application so the first thing
+we should do is set up a route we can
+just say apt-get slash this is going to
+be our homepage route that you'll need
+to be logged into to access and instead
+of here we just get a function which has
+a request variable and a response
+variable and all we want to do is
+actually send them a certain page that
+we're going to create so we can just say
+response dot render and inside of here
+we want to render a file we're going to
+call that index ejs and we can say that
+and right now we don't have any files
+being rendered
+in order to get that working what we
+needed to do is create a folder called
+views and inside of here we need to
+create that view index ejs and now
+instead of here let's just put some code
+we'll put an h1 whoops h1 and inside of
+it we're just going to say hi just like
+this save that and now when we refresh
+this you see that we get hide being sent
+out to the server now in order to use
+EGS syntax we need to tell our server
+that we're using ejs so inside of here
+we can say app dot set and what we want
+to do is we want to set the view engine
+so just like this we can say type in
+view engine and we want to set this here
+to ejs and this is why we installed that
+ejs dependency earlier because now our
+view engine is set to ejs and we can
+actually use EGS in our template so for
+example let's say that we want to pass a
+user down we can just say user I should
+just say we want to pass down a name and
+we can just give a name of Kyle for
+example as a basic example and inside of
+here we can just put that name by
+putting it inside of this less than with
+a percent and an equal sign this luxury
+render out a variable and we could just
+render name now if we save that and we
+refresh over here you'll see us as hi
+Kyle now that we have a super simple
+server setup let's actually create the
+routes we need for our login page and
+our register page first we'll create
+views for them we'll call it login dgs
+and we'll also create a view here call
+the register ejs these would be our two
+different pages and then inside of our
+server we're gonna create routes for
+both of those so we can just use get
+routes again
+since we just want to get them via the
+URL the first one is going to be login
+and again it'll take a request and a
+response and instead of here what we
+want to do is you just want to copy this
+code up here for rendering but instead
+we want to render our login dgs and we
+don't need to worry about passing any
+extra information to it so here's our
+login and we could do the exact same
+thing for register except for we're
+going to change our route to be register
+and we want to make sure that we render
+the registered ejs file which is inside
+of our views folder now if we save that
+and instead of here we just put the text
+login and in here we put the text
+register make sure we save both of those
+and if we go to slash login you'll see
+it says login and if we go to slash
+register you'll see it says register now
+that we know our pages are rendering
+let's create the actual HTML inside of
+them for render in our forms will be
+register first and the first thing we
+want to do is we want to have an h1 and
+inside of here we're just going to
+but the text register so we know that
+we're on our register page and then
+after that we're gonna have our form
+which is going to contain all of our
+different inputs make sure we close that
+off and inside of this form we're going
+to have an action whoops action and this
+action here is going to be slash
+register and we want to make sure that
+we change the method here to be post and
+this means that we're going to post to a
+route with the name slash register
+inside of our server so let's create
+that right now we'll do it right here
+after our apt-get and this one is going
+to be an app dot post and it's going to
+be the same route of register and again
+this is going to have a request and a
+response variable inside of that
+function and we'll just implement this
+later for now we're going to work on
+making sure our HTML in the register
+that ejs is complete the first thing we
+need to do is we need to have a row so
+we'll just use a div for doing this and
+this row is actually going to contain
+all of our information for our login and
+for the name so we're gonna have here an
+input or a label first and as label is
+going to be for our name element and we
+want to make sure we just label this as
+name make sure you close off this label
+next we can actually create the input
+which is going to be for that name it's
+going to have a type here whoops a type
+which is going to be text we want to
+make sure we give it an ID which is the
+same as the four so it's going to be
+named and we also want to give it a name
+which is how we'll access it on the
+server and this will just be named
+lastly we want to make sure this is
+required so we use the required
+attribute now let's save this refresh
+our page and you'll see we have our name
+input right here let's copy this down
+because we're going to need a few more
+inputs we're going to have our first
+input which is going to be email so
+we're gonna just change everything up
+here to the email type is going to be
+email whoops email we want to make sure
+the ID is email so it matches this for
+and lastly the name is email and down
+here we're gonna do the same thing but
+we're gonna do this for password so make
+sure we change all of our old text to be
+password type is password ideas password
+and of course name is password save that
+and refresh and you see now we have our
+name our email and our password being
+set the last thing we need to do is
+actually to create a button to submit
+our form so we'll just create a button
+with the type of submit and instead of
+here we can just put in the text
+register now we save that refresh we
+have all of our form elements for
+registering our page the last thing
+we're going to want to do is actually
+add in an anchor tag which will just
+link us back to our login page so we'll
+just have an href
+which is going to go to /login and we
+just want to put in the text login now
+if we refresh and click login you'll see
+we get brought back to our login page
+and our login page is going to be almost
+exactly the same as register so let's
+copy that paste it over here instead
+we're gonna want to put login up here
+and we want to make sure our href is
+going to our register page with the text
+of register and of course we want to
+post to our login route instead of to
+our register route also the last thing
+we can remove is this name and we can
+change this register text here to say
+login and now if we refresh this you see
+we get a login page as an email a
+password a login button and we can go
+back to the register page or back to the
+login page
+we can really change around whichever
+one we want to be on now that we have
+our pages complete let's go back into
+our server and actually implement these
+post methods first we want to create the
+post method for a login those are just
+going to be posting to slash login and
+we also since we're going to be getting
+information from forms what we need to
+do is come up here and we actually need
+to say app use and we need to tell it
+that we want to use Express that URL
+encoded and we want to make sure we pass
+it the option of extended we want to put
+this as false essentially all that this
+is doing is it's telling our application
+that what we want to do is take these
+forms from our email and password and we
+want to be able to access them inside of
+our request variable inside of our post
+method so inside of post here for our
+register we could say request that name
+whoops request body that name and that
+would correspond to this name field
+right here can do the same thing for
+email and of course lastly the same
+thing for password and what we put after
+body here corresponds exactly to this
+name field so name is name name is email
+name is password whatever this name
+field is corresponds to what we're going
+to use after body to access it now we're
+going to use is instead of using a
+database to store our users we're just
+going to store them in a local variable
+inside of our server so let's create a
+variable up here we're just going to say
+Const users is going to be equal to an
+empty array now this is something you
+would never want to do in production but
+it's much easier to use just a local
+variable as opposed to connecting to an
+entire database especially since this
+tutorial is only focused on the
+authentication and login portion and not
+on how to connect to a database if you
+want to learn how to connect to a
+database in an application I have an
+entire full stack course on YouTube for
+node.js and MongoDB
+you can check out I'll have it linked in
+the cards and the description below so
+now down here inside of our body we also
+need to build a hash our user's password
+and to do that we're going to use
+something called bcrypt which is a
+library that we want to install so down
+here inside of our terminal we could
+just hit + to open up a new tournament
+type in NPM I bcrypt and bcrypt is going
+to allow us to hash passwords as well as
+to compare hashed passwords to make sure
+that our application is entirely secure
+once that's done downloading we can come
+up to the top here and we can actually
+include that so we can say Const decrypt
+is going to be equal to require just
+like that and we want to make sure we
+require bcrypt
+the video now we actually have access to
+that variable let's make sure we go back
+to our other console that has our actual
+application running on it and instead of
+here what we want to do is we want to
+create a new user with the correct
+hashed password so to do this we're
+going to use a try-catch block because
+we actually are using asynchronous code
+and what we want to do is we want to
+make sure this is an async function so
+that we can use trycatch inside of it
+and what we want to do is we want to
+make a hashed password so we can create
+a variable call it hashed password and
+that's going to be equal to bcrypt
+dot hash and we want to do is we want to
+pass it in the password which is request
+body dot password and we also want to
+pass it how many times that we wanted to
+generate essentially that hash how
+secure do we want it to be and we're
+going to use the value 10 which is just
+a good standard default value which is
+going to make it fairly quick but also
+quite secure and we need to make sure
+that we actually await this because this
+is asynchronous so it's going to return
+after waiting for it so now here we have
+an actual hashed password which we can
+store in our database and if you want
+more in-depth information on security
+for authentication with hash hashing
+passwords I have an entire video which
+I'll also link in the cards in the
+description that goes over just
+authentication and hashing passwords
+using bcrypt inside of nodejs now what
+we can do down here is we have that
+users variable we can just push a new
+user to it and this user is first gonna
+have an ID that we can uniquely identify
+it for so we'll just use date now to
+string this is going to be a unique
+identifier for us again if you had a
+database this would be automatically
+generated so you wouldn't have to worry
+about this stuff
+next we want to get the name from the
+request so we'll say request body dot
+name we want to get the email whoops
+email which is request
+body email and lastly this password is
+instead of the request dot body - word
+we want to use that hashed password
+right here because this is actually safe
+to store in our database now if all of
+that was successful we want to redirect
+the user back to the login page so we
+can say response oops the dot redirect
+and we want to redirect them to slash
+login so that they can log in with the
+account they just registered but if for
+some reason we had a failure we just
+want to redirect them back to the
+register page here so redirect to
+register and we can remove this bogey
+line down here and that's our entire
+application for registering users now if
+I say that and at the bottom here we
+just put a console dot log for our users
+so we can see if we added a user we can
+come in here type in a name we'll use w
+WAW and a password of w if we click
+register you'll see down here in the
+console we get printed out an ID which
+is just the current timestamp we have
+the name W email wo W and this hashed
+password which is completely safe for us
+to store in our database now one thing
+to note is that every time we save our
+application and it reloads this variable
+users is going to get reset to an empty
+array so we just have to make sure to
+remember that and every time we make a
+change we just need to re add our user
+and this is purely because we're not
+using a database as I said earlier this
+is just in memory this is something
+again you would not want to do in a
+production application now that we have
+our register functionality done the next
+thing to work on is login and the actual
+act of checking to make sure the users
+name and email and password are the same
+is not too difficult but to actually
+persist that user across all of your
+different requests it gets a little bit
+involved so we're going to use a really
+handy library called passport jeaious
+which is used by nearly everyone for
+authentication so let's go over here to
+our other terminal where we can actually
+install that and what we want to do is
+we just want to type in NPM I and we
+want to install passport as well as
+passport local and the local version
+essentially allows us to use usernames
+and passwords for logging in password
+has a passport has a bunch of different
+ways you can log in whether it's through
+Google Facebook local password email etc
+so we just want to use the local version
+but again if you wanted to experiment
+with other versions feel free to also in
+order to store and persist our user
+across different pages we need to use
+something called session so we're going
+to install Express
+session and and also to display messages
+for if we fail to login we're going to
+install something called Express flash
+which is used by passport inside the
+internals to display those nice handy
+messages for wrong email wrong password
+etc so after that finishes installing
+there we go we can actually set up our
+passport to be working with our login
+and while we could put all this
+information into our server file here
+it's quickly going to become quite large
+and bloated so what I like to do is
+actually create a separate file and
+we're just going to call this here
+passport config j/s and in here we're
+going to put all of our different
+passport related information and we're
+gonna do it all inside of a function
+which we're going to just call
+initialize there we go and inside of
+this function we're going to initialize
+our passport which we're going to make
+sure that we pass to our initialize
+function and then inside of our server
+what we want to do is we actually want
+to require that so we can just come down
+here and we can require that function
+we'll just call it here initialize
+passport oops and that's going to be
+equal to equal to required and we want
+to make sure we require here our
+passport config and then we can just
+call that function and nish Sheila's
+passport and we'll post it in our
+passport variable which we can just get
+by using Const whoops Const passport is
+equal to require of passport which is
+just that library we just installed now
+we are calling this function to
+initialize passport instead of our
+passport configure and we can do all of
+our configuration for passport inside of
+this single file and to use that local
+version of passport what we want to do
+is gonna come up here we want to create
+a variable we're just gonna call local
+strategy
+whoops strategy there we go we're going
+to set this equal to require passport
+local and we just want to get the
+strategy from that so we can just say
+dot strategy this is going to be our
+local strategy and then we can come down
+here and say passport use and we
+actually want to use that local strategy
+so we can just say new local strategy
+and inside of here this is going to take
+options the first option that we want to
+pass is we want to pass the username
+field and this essentially says what is
+our username cult by default it's going
+to be username but in our example we're
+calling this email so here we just want
+to put an email and you can also pass in
+the password field but it defaults to
+password
+in our application we already call a
+passport or password so we're perfectly
+fine then the next thing that we need to
+do is we actually need to pass a second
+variable here which is going to be the
+function that this is going to call to
+authenticate our user so we'll just
+create a function here we're just going
+to call it
+authenticate whoops authenticate user
+there we go and we're going to pass in
+that function name which will create up
+here as a function called authenticate
+user and actually to make this easier on
+ourselves we're actually going to put
+this awesome ticket user function inside
+of our initialize function we'll just
+make it an arrow function and this
+authenticate user function is going to
+take in a few different parameters the
+first parameter this is going to take in
+is going to be the email in our case
+this is the username field the next
+thing is going to be our password and
+lastly it's a done function essentially
+we're going to call this whenever we're
+done authenticating our user so now that
+we have that done we have our passport
+use setup the next thing we need to do
+is set a passport for serializing our
+user so we can just come in here
+serialize user and inside of here we're
+going to take a function which is going
+to take a user and it's going to take it
+done and this is going to serialize our
+user to store inside of the session and
+we need to have a function which is
+going to do the exact opposite of
+deserializing our user and this is again
+going to take in here an ID and done
+because we're going to serialize our
+user as a single ID and then let's work
+on our authenticate user function
+because this is essentially what we're
+going to call from our login using our
+email password to make sure our user is
+correct so the first thing we want to do
+is get our user by email so we can just
+create a user here and we're just going
+to say that this is going to be get user
+by email and we're gonna pass in the
+email this is a function that we're
+going to create but we don't have to
+worry about it right now we just know
+that this is going to return us a user
+by email or we're going to return null
+if there is no email for that user so we
+want to check to make sure that we
+actually have a user so we can say if
+our user is null then we for some reason
+cannot find the user and we want to
+return so we can just say return done
+which is this function we needed to call
+every time we're done and the first
+parameter is the error in our case we
+don't have an error because the error
+would be if something went wrong on your
+server and in our case there is no error
+on the server the next thing we need to
+do is we need to return the user we
+found in our case we found no user so
+we'll return false and we can also
+return
+message which will be displayed this is
+essentially our error message we can
+just say no user with that email there
+we go and now that we know if we get
+past this if statement that we actually
+have a user what we can do is we can
+actually try to make sure that the users
+password matches this password that's
+passed in here and to do that we're
+going to need decrypt so let's make sure
+we take in decrypt by using the require
+statement whoops
+require and we want to require that
+bcrypt library just like that and then
+down here this is again asynchronous so
+we're going to wrap this inside of a
+try-catch and inside the try portion of
+this try catch what we want to do is we
+want to make sure that we check by
+awaiting our bcrypt dot compare and the
+first thing we want to password is the
+password that the user sent in with the
+login form which is this password and we
+want to compare that to our user dot
+password just like this oops password
+and if this return is true and that
+means that we actually have an
+authenticated user so everything
+returned successfully but else if it did
+not return true then that means that our
+users password did not match so let's do
+the bad case first we're gonna return
+done with no error and we want to return
+false here because we don't have a user
+again the passwords did not match and we
+also want to return a message here and
+the spouses are essentially is going to
+say password incorrect just like that
+and if we for some reason did find the
+user our passwords are correct we want
+to return done again with no error but
+this time we're going to return the user
+that we want to actually authenticate
+with this is the user that they have
+actually logged in as and lastly inside
+of our catcher let's catch that error
+and we don't return done here but we
+won't return that error inside of our
+done statement as our first parameter
+because we actually had an error with
+our application so now the only thing we
+have left is this get user by email we
+need to make sure we pass that in so
+we're going to pass that into our
+initialize function here and we need to
+make sure down here that we actually
+export that function so we're gonna save
+modules dot export or I'm sorry module
+dot exports is going to be equal to that
+initialized function this is just so we
+can call that function by requiring in
+our passport config that we created here
+so back into our server instead of our
+passport we actually want to pass in
+that function it's going to take in an
+email so email and inside of here what
+we're going to do is we just
+say users dot find and we want to find
+where our user dot email is equal to the
+email that we passed in and we want to
+make sure that we return that and to
+make this even easier to read let's make
+sure we put all these on different lines
+just like this we can actually put this
+all into a single line up here there we
+go
+remove a bunch of these extra
+parentheses and there we go this is our
+function for finding the user based on
+the email and this is our passport that
+we're configuring now that we have our
+passport configured what we need to do
+is we actually need to work on you a
+bunch of use statements essentially so
+that our server knows how to use
+passport the first thing that we want to
+do is an app dot use and this one's
+going to be for flash which we have not
+actually required yet so let's make sure
+we require that we're going to say Const
+clash is going to be equal to require
+whoops in here we have Express flash we
+also need to do the exact same thing for
+session these are just the libraries
+that we installed earlier and now down
+here with our app dot use we have flash
+as our first one the next one we need to
+use is session and session actually
+takes a bunch of different options the
+first one is a secret this is
+essentially a key that we want to keep
+secret which is going to encrypt all of
+our information for us and we're going
+to get this from our environment
+variables so we'll say process a NV dot
+session whoops session underscore secret
+this is just going to be the name of our
+secret key which we're gonna put inside
+of our MV file so we'll say session
+underscore secret and you can set this
+to whatever you want in our case we'll
+just set it to a secret used to most
+likely want to generate this as a random
+string of characters so that it's more
+secure the longer and more random it is
+the more secure it'll be now back inside
+of our server here we actually need to
+load in our environment variables so
+we'll do that at the very top of our
+application we can just say if our
+process env node E&V; is not equal to
+production essentially it means that
+we're in development we want to require
+that development tendency of dot env and
+we want to call dot config this is going
+to load in all of our different
+environment variables and set them
+inside of process env now with that out
+of the way we have a few more properties
+that we need to set the first one is
+resave we want to set this to false
+essentially this says should we re save
+our session variables if nothing has
+changed in our case we don't want to
+resave it if
+has changed and lastly we have save
+uninitialized which again we want to be
+false and essentially this is saying do
+you want to save an empty value in the
+session if there is no value and we
+don't actually want to do that now with
+flash and session out of the way we can
+set up a passport so we can say app that
+you use passport initialize this is just
+a function inside of passport which is
+going to set up some of the basics for
+us and since we want to store our
+variables to be persisted across the
+entire session our user has we want to
+use passport session which is going to
+work with our app dot use session up
+here and that with all that finally out
+of the way we can come down to our post
+for our login and we actually don't even
+need this function because we're just
+going to use the passport authentication
+middleware so we can say passport dot
+authenticate and we want to use the
+local strategy and what we want to do is
+pass it a list of options for things
+that we want to modify the first is
+going to be where do we go if there's a
+success so our success redirect is going
+to go to our home page which is just
+slash up here and for some reason if
+there's a failure where do we want to
+redirect and we want to redirect them
+back to the login and we also want to
+make sure that we show a message so
+we'll set failure flash to true this is
+just going to let us have a flash
+message which we can display to the user
+which is going to be equal to our
+messages in here so no user with that
+email or password and correct depending
+on what the error is that they get and
+now in order to display that error
+message we need to go into our login dgs
+and we need to use our EGS here in order
+to actually first have an if statement
+and we want to check if messages dot
+error and this is just essentially
+saying that we have an error message and
+the way that this messages air gets set
+is flash is going to set a messages
+variable to all of our different flash
+messages messages and passport is going
+to set a error message here which is
+going to be whatever error that we get
+for example over here no user with that
+name or password incorrect is going to
+be what error is set to so if we do have
+an error being set we want to do is we
+just want to render that so we can just
+say locals got messages dot error
+actually we don't even need the locals
+we can just turn your bet it's just
+messages dot air make sure we close that
+off and of course we also need to make
+sure that we close off our curly braces
+here so now we're actually going to
+display our message if we have one and
+if we save refresh you can see that
+we're getting an error so let's go over
+to our application here see what our
+error is
+if we scroll up you sit as saying that
+we have an error here on line 12 it's
+saying that it can't understand what
+bcrypt is and it's actually because it
+can't understand a weight because we
+need to have an asynchronous function
+here so now if we say that scroll back
+down
+you see we're getting the same error
+message because I put a sink in the
+wrong spot it's this authenticate user
+that needs to be asynchronous and now if
+you save that you see we're getting a
+final error here we're just saying that
+local strategy requires a verified
+callback and whoops don't actually go
+there and if we scroll down to where
+we're defining our local strategy you
+see that we're not actually passing an
+authenticated user to our local strategy
+we're passing it to passport use so
+let's make sure that we are properly
+passing authenticate user to our new
+local strategy and not to the passport
+use now let's save that scroll down you
+can see that we have no errors or the
+application so we can refresh over here
+and our login page is working let's try
+to register with the user will just do W
+W at W and W and now if we try to log in
+with a random email and a random
+password we could login whoops if we
+make sure this is an email and you'll
+see this there's no user with that email
+now we'll choose the correct email and a
+wrong password and we'll get password
+incorrect and now finally if we use the
+correct email and the correct password
+click login you see that it's loading
+for a while and that's probably because
+we have an error and we do actually have
+an error we're not actually implementing
+our serialize user or our deserialize
+user functions yet so let's do that
+instead of our serialize user all we
+need to do is serialize our user so we
+can just say user ID we just want to get
+the users ID and save that into our
+session and we need to make sure we pass
+this to the done function null is for
+our error and in here user ID is the
+actual serialized version of our user
+next we need to do almost the exact same
+thing for our deserialize but instead of
+here what we want to do is we actually
+want to get the user so what we're going
+to do is wrap this onto a separate line
+so it's a bit easier to read for you all
+and we want to get our user by ID so
+we'll just say get user by ID and we're
+gonna pass it in the ID right here that
+we're getting and we want to make sure
+that we return this and this get user by
+ID is something we need to make sure we
+pass in up here so let's pass in this
+get user by ID go into our server scroll
+up to where we defined that just right
+here and we're going to define a
+function which takes an ID and we're
+going to get a user by that ID and
+there's going to
+almost exactly the same as our email
+function but instead of comparing emails
+we're gonna be comparing IDs just like
+this now we can actually test that we
+can go into our email or a register make
+sure we register that user now we can
+type in the email correctly and the
+password click login
+and you'll see it redirects us back to
+that perfect page for our index of where
+we want to log in if we have an
+authenticated user and the best part
+about using passport is that we can get
+our user really easily instead of here
+instead of passing our name we want to
+pass our user's name so we can just say
+here our request dot user dot name and
+request that user is just going to be
+the actual user that we're using now if
+we save this make sure we go back to our
+register page re register our user and
+we want to use that exact email and
+login you'll see this has high W which
+is the name of the user that we
+specified and that's the power of using
+session with passport is request that
+user is always going to be sent to the
+user that's authenticated for that
+moment but there's a big problem with
+our application for example if we were
+to just save this so that our user no
+longer exists we can go to this index
+page and it gives us an error because we
+don't have a user and we can access this
+information even if we're not logged in
+but of course we don't want to allow non
+logged in users to access this
+information so let's work on protecting
+all of our different routes for when
+we're not logged in and to do this is
+actually really simple let's just
+minimize this so it's a little bit out
+of the way and we just want to create a
+new function this function is going to
+be check authenticated and as function
+is going to take a request response and
+next this is essentially a middleware
+function which is just going to take our
+request and response and an X variable
+that we call whenever we're done
+finishing up our authentication here
+would check authenticated and we want to
+do is we just want to check if the users
+authenticated so because of passport we
+can you call a function on request which
+is called is authenticated whoops
+authenticated and this function is just
+going to return true if there's a user
+that's authenticated or false if there
+is no user so if it returns true we can
+just come in here and we just want to
+return our call to next essentially
+saying everything works just go on to
+the next but if it returns false what we
+want to do is we're gonna redirect the
+user so we'll say response dot redirect
+we don't a redirect them to the login
+page
+so now we can use this check
+authenticated
+go all the way up to here we have in our
+app get and whatever we want to
+authenticate we just put in this check
+authenticated before our actual function
+and this will get called first and if
+for some reason there's a problem it'll
+actually redirect the user to that home
+page or the login page so now it's saved
+that and if we just try to go to this
+page you'll see immediately we get
+redirected to login and again if we try
+to go back to that it's going to
+redirect us to our login page because
+we're not logged in yet we want to do
+the same thing for when we are logged in
+so if we log in with a user we're just
+going to register our same W user and
+we're going to log them in we don't want
+to allow them to go back to login for
+example if I type in login I can go back
+to the login page even though I'm
+already logged in so we want to use
+another check this one's going to be
+almost exactly the same so we can come
+down here function this is going to be
+called check not authenticated it's
+going to take in a request a response
+and next and inside of here we want to
+do that same check to see if our users
+authenticated but if they are
+authenticated we want to redirect them
+so we're gonna say res dot redirect
+whoops res des redirect and we on a
+redirect them to the home page just like
+this it's going to redirect them back to
+that dashboard and if for some reason
+they're not authenticated we just want
+to continue on with the call so now we
+can put this check authenticated in all
+the places we want to check to see if
+the users not authenticated for example
+we don't want to allow users to go to
+the login page if they're already
+authenticated we don't want to allow
+them to login if they're already
+authenticated same with register and
+lastly again with register down here all
+of these we want to make sure that no
+users logged in if they want to access
+these different reps so now if we
+register a user using the register make
+sure we login and we try to go to that
+login page select type in slash login in
+the URL hit enter and you see that we
+get an error so let's check out a
+function we just wrote and it looks like
+down here we forgot to put in our return
+for one redirect in the user now let's
+say that make sure we go back all the
+way to our registered page
+whoops make sure the name is w.w same
+user we've been using this whole time
+and we login and now if we try to go to
+that login page whoops login hit enter
+you see it redirects us back to this
+dashboard page because we're already
+authenticated we can do the same thing
+by trying to go to our register page
+and again it's going to redirect us back
+here to our dashboard now the very last
+thing that we have to set up is our
+final route which is going to be for
+logging our user out because right now
+we have no way to log out we're just
+stuck on this page so we need to click a
+delete request and it's delete request
+we're just gonna call log out and it's
+going to take our typical
+request whoops request and response
+variables just like this and inside of
+here all we need to do is just call
+request dot logout whoops log out just
+like that and then we can just redirect
+the user so we can just say request dot
+redirect and we just want to redirect
+back to the login page
+this logout function is again something
+that passports sets up for us
+automatically it'll clear a session and
+log our user out and in order to call
+this delete function we can't actually
+do that directly from HTML what we need
+to use is we need to use a form and we
+need to post but since delete is not
+actually supported by forms we can only
+use post we need to use another final
+library so let's go over and install
+this library NPM I and this is called
+method override and essentially what
+this will allow us to do is actually
+override our method that we're using and
+so instead of using post we can actually
+call this delete method here so now
+let's scroll all the way up to the top
+make sure we include this library so we
+can say Const method override is going
+to be equal to require of method over
+red and we want to make sure we use that
+so say AB dot use method over red and
+instead of here we ask you to pass what
+we want our method override to be in our
+case we're just going to use underscore
+method this is what we're gonna pass for
+our method so in order to see that in
+example let's go into our index here and
+create a form this is going to be our
+logout form' so the action is just going
+to be slash
+logout and we want to make sure in here
+that we put question mark and an
+underscore method and that's going to be
+equal to delete so this underscore
+method is what we're using to override
+our method which we set here which is
+going to be post so we're going to
+override that with delete so that inside
+of our server here we can call this app
+dot delete that we have here instead of
+a hat dot host for logout this is just
+safer because you should always use
+delete when you're deleting things so
+now come down here inside of our form
+all we need to do is put a single button
+which is going to be our submit button
+so we put the type of submit and instead
+of here we can just put
+text of logout now if we save that make
+sure that we register our user so we can
+put our name all the same stuff that
+we've been doing this whole time you can
+say we have a logout button and when we
+click that of course we're going to get
+an error and it's because as I can see
+we put request dot redirect and this
+should be response dot redirect so now
+let's try that again let's make sure we
+go back to our page register our user
+login everything is looking good and we
+click logout you see it brings us back
+to the login because our users logged
+out and we no longer can go and access
+our homepage and finally we have an
+entirely working login application which
+you can plug in to your project you're
+working on if you enjoyed the video make
+sure to check out my other videos linked
+over here and also subscribe to the
+channel for more videos of me
+simplifying the web thank you very much
+for watching and have a good day.
