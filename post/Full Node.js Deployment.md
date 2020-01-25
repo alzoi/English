@@ -152,8 +152,7 @@ SSH
 okay so now if I do an LS which will
 list the directory contents you'll see
 that we have node app so I'll CD into
-node
-- app and if I do an LS here you'll see
+node app and if I do an LS here you'll see
 that we have our application files now
 we don't have our dependencies installed
 notices no node modules folder so we
