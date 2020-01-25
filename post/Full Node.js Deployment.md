@@ -211,7 +211,7 @@ look all this up in the documentation
 this will show you all your apps that
 are running if we wanted to let's say
 restart our application we could do p.m.
-- and then app or we want to do p.m. to
+and then app or we want to do p.m. to
 restart app j/s and that will restart it
 we could do p.m. to stop app j/s and
 I'll have a bunch of commands in that
