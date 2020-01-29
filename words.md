@@ -1,5 +1,7 @@
 Английское слово | Перевод
 ---------------- | -------------
+document category | тип документа
+item categories | тип позиции
 purchase requisitions | заявка
 purchase order | заказ на поставку
 stuff | барахло, хлам, материал
