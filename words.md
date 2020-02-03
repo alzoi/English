@@ -1,5 +1,6 @@
 Английское слово | Перевод
 ---------------- | -------------
+inheriting | наследование
 document category | тип документа
 item categories | тип позиции
 purchase requisitions | заявка
