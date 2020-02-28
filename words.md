@@ -1,5 +1,6 @@
 Английское слово | Перевод
 ---------------- | -------------
+immediately | немедленно
 inheriting | наследование
 document category | тип документа
 item categories | тип позиции
